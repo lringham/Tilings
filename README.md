@@ -1,10 +1,13 @@
 # Tilings
 
-Below you will find a collection of fractal tilings I made using L-Systems and the [vlab](https://algorithmicbotany.org/virtual_laboratory/) programming environment.
+Below you will find a collection of fractal tilings I made using L-Systems and the [vlab](https://algorithmicbotany.org/virtual_laboratory/) programming environment. In L-Systems, given an initial string of tokens and a set of rules that describe how tokens can be replaced by other tokens, we can iterate a number of times to produce self-similar geometry such as fractals, plants, or natural patterns.
 
 ## Sierpinski Tetrahedron
-Using the turtle graphics drawing functionality of `vlab`, we can traverse a Sierpinski tetrahedron's vertices. Essentially turning it into a 1D function.  
 ![Sierpinski](./img/sierpinski3d.png)
+<p align="center">
+Using the turtle graphics drawing functionality of vlab, we can traverse a Sierpinski tetrahedron's vertices. Essentially turning it into a 1D function.  
+</p>
+
 ```c++
 #include <lpfgall.h>
 /*.433*/
@@ -38,8 +41,11 @@ T(v1,v2,v3,v4) :
 }
 ```
 ## Hexagon Tiling
-An arrangement of full and half hexagons with the right color choices reveals a Sierpinski-esque pattern  
 ![hex](./img/hex.png)
+<p align="center">
+An arrangement of full and half hexagons with the right color choices reveals a Sierpinski-esque pattern.  
+</p>
+
 ```c++
 #include <lpfgall.h>
 
@@ -81,8 +87,11 @@ H(v1, v2, v3, v4) :
 
 ```
 ## Cross Tiling
-By coloring one of the cross sub-tiles black, this tiling attains a knitted appearance.  
 ![Cross](./img/cross.png)
+<p align="center">
+By coloring one of the cross sub-tiles black, this tiling attains a knitted appearance.  
+</p>
+
 ```c++
 #include <lpfgall.h>
 
@@ -171,8 +180,11 @@ L(v1, v2, v3, v4, v5, v6) :
 
 ```
 ## Aperiodic Tiling
-Comprised of squares, rhombuses, and triangles - interesting stars patterns emerge in this tiling.  
 ![Aperiodic](./img/aperiodic.png)
+<p align="center">
+Comprised of squares, rhombuses, and triangles - interesting stars patterns emerge in this tiling.  
+</p>
+
 ```c++
 #include <lpfgall.h>
 
@@ -265,8 +277,11 @@ R(v1, v2, v3, v4) :
 
 ```
 ## Sphinx Tiling
-Unfortunately, I did not notice this one had a very obvious bug until recently. Much like how the real Sphinx has a missing nose, my rendition has a missing head.  
 ![Sphinx](./img/sphinx.png)
+<p align="center">
+Unfortunately, I did not notice this one had a very obvious bug until recently. Much like how the real Sphinx has a missing nose, my rendition has a missing head.  
+</p>
+
 ```c++
 V2f p0(0, 0), p1(1, 1.7321), p2(1.5, .866), p3(2.5, .866), p4 (3, 0), p5(4, 1.7321);
 
