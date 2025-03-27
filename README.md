@@ -2,7 +2,6 @@
 
 Below you will find a collection of fractal tilings I made using L-Systems and the [vlab](https://algorithmicbotany.org/virtual_laboratory/) programming environment.
 
----
 ## Sierpinski Tetrahedron
 Using the turtle graphics drawing functionality of `vlab`, we can traverse a Sierpinski tetrahedron's vertices. Essentially turning it into a 1D function.  
 ![Sierpinski](./img/sierpinski3d.png)
