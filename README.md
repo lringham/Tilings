@@ -5,7 +5,7 @@ Below you will find a collection of fractal tilings I made using L-Systems and t
 ---
 ## Sierpinski Tetrahedron
 Using the turtle graphics drawing functionality of `vlab`, we can traverse a Sierpinski tetrahedron's vertices. Essentially turning it into a 1D function.  
-![[img/sierpinski3d.png]]
+![Sierpinski](./img/sierpinski3d.png)
 ```c++
 #include <lpfgall.h>
 /*.433*/
@@ -40,7 +40,7 @@ T(v1,v2,v3,v4) :
 ```
 ## Hexagon Tiling
 An arrangement of full and half hexagons with the right color choices reveals a Sierpinski-esque pattern  
-![[img/hex.png]]
+![hex](./img/hex.png)
 ```c++
 #include <lpfgall.h>
 
@@ -83,7 +83,7 @@ H(v1, v2, v3, v4) :
 ```
 ## Cross Tiling
 By coloring one of the cross sub-tiles black, this tiling attains a knitted appearance.  
-![[img/cross.png]]
+![Cross](./img/cross.png)
 ```c++
 #include <lpfgall.h>
 
@@ -173,7 +173,7 @@ L(v1, v2, v3, v4, v5, v6) :
 ```
 ## Aperiodic Tiling
 Comprised of squares, rhombuses, and triangles - interesting stars patterns emerge in this tiling.  
-![[img/aperiodic.png]]
+![Aperiodic](./img/aperiodic.png)
 ```c++
 #include <lpfgall.h>
 
@@ -267,7 +267,7 @@ R(v1, v2, v3, v4) :
 ```
 ## Sphinx Tiling
 Unfortunately, I did not notice this one had a very obvious bug until recently. Much like how the real Sphinx has a missing nose, my rendition has a missing head.  
-![[img/sphinx.png]]
+![Sphinx](./img/sphinx.png)
 ```c++
 V2f p0(0, 0), p1(1, 1.7321), p2(1.5, .866), p3(2.5, .866), p4 (3, 0), p5(4, 1.7321);
 
