@@ -119,7 +119,7 @@ L(v1, v2, v3, v4, v5, v6) :
     V2f v61   = (v6 + v1) *.5;
     V2f v563  = (v56 + v3) *.5;
     V2f v613  = (v61 + v3) *.5;
-    V2f up       = v613 - v61;
+    V2f up    = v613 - v61;
     V2f right = v563 - v56;
     V2f vMid1 = v23 - up;
     V2f vMid2 = v34 - right;
@@ -227,9 +227,9 @@ T(v1, v2, v3) :
 R(v1, v2, v3, v4) : 
 {
     V2f v12 = (v1*.5858)+(v2*.4142);
-        V2f v23 = (v2*.4142)+(v3*.5858);
+    V2f v23 = (v2*.4142)+(v3*.5858);
     V2f v34 = (v3*.5858)+(v4*.4142);
-        V2f v41 = (v4*.4142)+(v1*.5858);
+    V2f v41 = (v4*.4142)+(v1*.5858);
     V2f parallel = v41 - v1;
     V2f va  = v12 + parallel;
     V2f vb  = v34 - parallel;
@@ -285,14 +285,14 @@ I(v1, v2, v3, v4, v5) :
 
 S(v1, v2, v3, v4, v5) :
 {
-    V2f d = (v1+v5)*.5;
-    V2f v0 = (v2 - v1)*.25;
-    V2f a = d + (v4-v5);
+    V2f d     = (v1+v5)*.5;
+    V2f v0    = (v2 - v1)*.25;
+    V2f a     = d + (v4-v5);
     V2f right = v3 - a;
-    V2f b = a - v0;
-    V2f c = b - right;
-    V2f e = d + v0;
-    V2f h = e + right;
+    V2f b     = a - v0;
+    V2f c     = b - right;
+    V2f e     = d + v0;
+    V2f h     = e + right;
 
     produce 
     SetColor(2) S(v5, v4, h, e, d)
