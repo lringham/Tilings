@@ -2,6 +2,62 @@
 
 Below you will find a collection of fractal tilings I made using L-Systems and the [vlab](https://algorithmicbotany.org/virtual_laboratory/) programming environment. In L-Systems, given an initial string of tokens and a set of rules that describe how tokens can be replaced by other tokens, we can iterate a number of times to produce self-similar geometry such as fractals, plants, or natural patterns.
 
+## Hexagon Tiling
+![hex](./img/hex.png)
+<p align="center">
+An arrangement of full and half hexagons with the right color choices reveals a Sierpinski-esque pattern.  
+</p>
+
+```c++
+#include <lpfgall.h>
+
+// Constant coodinates used for the initial shape
+V2f p0(0, 1), p1(.866, .5), p2(.866, -.5), p3(0, -1), p4 (-.866, -.5), p5(-.866, .5); 
+
+// Forward declarations of functions
+module H(V2f, V2f, V2f, V2f);           // Half hex tile 
+module A(V2f, V2f, V2f, V2f, V2f, V2f); // Full Hexagon
+
+// Number of recursive steps
+derivation length: 7; 
+
+// The initial shape
+Axiom: A(p0, p1, p2, p3, p4, p5);
+
+// Function defintions
+A(v1, v2, v3, v4, v5, v6) :
+{
+    produce H(v1, v2, v3, v4) H(v1, v6, v5, v4);
+}
+
+H(v1, v2, v3, v4) :
+{
+    V2f v14_1 = v1*.75 + v4*.25;
+    V2f v14_2 = v1*.25 + v4*.75;
+    V2f v12   = v14_1 + (v2 - v1) * .5;
+    V2f v34   = v14_2 + (v3 - v4) * .5; 
+    produce SetColor(3) H(v14_1, v12, v34, v14_2) 
+            SetColor(4) H(v2, v12, v34, v3) 
+            SetColor(5) H(v1, v14_1, v12, v2) 
+            SetColor(7) H(v4, v14_2, v34, v3);
+}
+
+// Render instructions
+interpretation:
+H(v1, v2, v3, v4) :
+{
+    nproduce MoveTo2f(v1); // Move without drawing
+
+    // SP - Start Polygon
+    // PP - Vertex
+    // EP - End Polygon
+    produce SP
+        PP MoveTo2f(v2)
+        PP MoveTo2f(v3)
+        PP MoveTo2f(v4) PP EP;
+}
+
+```
 ## Sierpinski Tetrahedron
 ![Sierpinski](./img/sierpinski3d.png)
 <p align="center">
@@ -10,8 +66,8 @@ Using the turtle graphics drawing functionality of vlab, we can traverse a Sierp
 
 ```c++
 #include <lpfgall.h>
-/*.433*/
-V3f a(0,0,0), b(0.5, .866, -.3), c(1,0,0), d(0.5, 0, -.866);
+
+V3f a(0,0,0), b(0.5, .866, -.3), c(1,0,0), d(0.5, 0, -.866); 
 
 module T(V3f, V3f, V3f, V3f); // Tetrahedron
 
@@ -39,52 +95,6 @@ T(v1,v2,v3,v4) :
 {
     produce LineTo3f(v4);
 }
-```
-## Hexagon Tiling
-![hex](./img/hex.png)
-<p align="center">
-An arrangement of full and half hexagons with the right color choices reveals a Sierpinski-esque pattern.  
-</p>
-
-```c++
-#include <lpfgall.h>
-
-V2f p0(0, 1), p1(.866, .5), p2(.866, -.5), p3(0, -1), p4 (-.866, -.5), p5(-.866, .5);
-
-module H(V2f, V2f, V2f, V2f);           // Half hex tile 
-module A(V2f, V2f, V2f, V2f, V2f, V2f); // Full Hexagon
-
-derivation length: 7; 
-
-Axiom: A(p0, p1, p2, p3, p4, p5);
-
-A(v1, v2, v3, v4, v5, v6) :
-{
-    produce H(v1, v2, v3, v4) H(v1, v6, v5, v4);
-}
-
-H(v1, v2, v3, v4) :
-{
-    V2f v14_1 = v1*.75 + v4*.25;
-    V2f v14_2 = v1*.25 + v4*.75;
-    V2f v12   = v14_1 + (v2 - v1) * .5;
-    V2f v34   = v14_2 + (v3 - v4) * .5; 
-    produce SetColor(3) H(v14_1, v12, v34, v14_2) 
-            SetColor(4) H(v2, v12, v34, v3) 
-            SetColor(5) H(v1, v14_1, v12, v2) 
-            SetColor(7) H(v4, v14_2, v34, v3);
-}
-
-interpretation:
-H(v1, v2, v3, v4) :
-{
-    nproduce MoveTo2f(v1);
-    produce SP
-        PP MoveTo2f(v2)
-        PP MoveTo2f(v3)
-        PP MoveTo2f(v4) PP EP;
-}
-
 ```
 ## Cross Tiling
 ![Cross](./img/cross.png)
